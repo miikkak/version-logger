@@ -12,7 +12,7 @@ import org.slf4j.Logger;
         id = "version-logger",
         name = "version-logger",
         version = BuildInfo.VERSION,
-        description = "Logs each player's client protocol version alongside their username on login",
+        description = "Logs each player's client protocol version alongside their username and UUID on login",
         authors = {"miikkak"})
 public class VersionLoggerPlugin {
 
@@ -32,8 +32,9 @@ public class VersionLoggerPlugin {
         Player player = event.getPlayer();
         ProtocolVersion version = player.getProtocolVersion();
         logger.info(
-                "{} connected with protocol {} ({})",
+                "{} ({}) connected with protocol {} ({})",
                 player.getUsername(),
+                player.getUniqueId(),
                 version.getProtocol(),
                 version.getMostRecentSupportedVersion());
     }

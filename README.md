@@ -1,13 +1,15 @@
 # version-logger
 
-A Velocity plugin that logs each player's username and client protocol version on login.
+A Velocity plugin that logs each player's username, UUID, and client protocol version on login.
 
 ## Why
 
 Velocity routes players on outdated clients to a limbo server, and only the lobby has
 ViaVersion's status logging. That means the client version never gets logged for a player who
-gets bounced to limbo. This plugin logs username + protocol version unconditionally for every
-player who logs in, regardless of where the proxy ends up routing them.
+gets bounced to limbo. This plugin logs username + UUID + protocol version unconditionally for
+every player who logs in, regardless of where the proxy ends up routing them. The UUID is
+included because a username alone doesn't survive a player renaming their account - the UUID
+does.
 
 ## How it works
 
@@ -20,7 +22,7 @@ proxy, but before Velocity decides which backend server to send them to. Logging
 the message is written before any limbo-vs-lobby routing decision, for every player, every time:
 
 ```text
-[INFO] [velocity]: playername connected with protocol 769 (1.21.4)
+[INFO] [velocity]: playername (a1b2c3d4-e5f6-7890-abcd-ef1234567890) connected with protocol 769 (1.21.4)
 ```
 
 ## Requirements
