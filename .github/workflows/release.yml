@@ -56,9 +56,9 @@ jobs:
         env:
           RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: |
-          JAR_PATH=$(find build/libs -maxdepth 1 -name "maintenance-bridge-${RELEASE_VERSION}.jar")
+          JAR_PATH=$(find build/libs -maxdepth 1 -name "version-logger-${RELEASE_VERSION}.jar")
           if [[ -z "$JAR_PATH" ]]; then
-            echo "::error::no jar found in build/libs matching maintenance-bridge-${RELEASE_VERSION}.jar"
+            echo "::error::no jar found in build/libs matching version-logger-${RELEASE_VERSION}.jar"
             exit 1
           fi
           echo "path=${JAR_PATH}" >> "$GITHUB_OUTPUT"
