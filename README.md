@@ -36,6 +36,13 @@ the message is written before any limbo-vs-lobby routing decision, for every pla
 ./gradlew build
 ```
 
+## Releases
+
+A merged PR labeled `release:major`, `release:minor`, or `release:patch` triggers
+`semantic-release` on merge to `main`, which tags the resulting commit `vX.Y.Z`. That tag push
+triggers the `Release` workflow, which builds the jar and attaches it to a GitHub Release.
+`release:none` skips this entirely - use it for docs/CI-only changes.
+
 ## Testing a release build
 
 Tagging `main` with `vX.Y.Z` (or running the `Release` workflow manually with a `tag` input)
