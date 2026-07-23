@@ -11,7 +11,9 @@ player who logs in, regardless of where the proxy ends up routing them.
 
 ## How it works
 
-Listens for Velocity's `PostLoginEvent`, which fires once a player is authenticated (Mojang
+Listens for Velocity's `PostLoginEvent`
+(`com.velocitypowered.api.event.connection.PostLoginEvent`), which fires once a player is
+authenticated (Mojang
 online-mode auth has already happened by this point - the proxy is always online-mode, so
 pre-auth connection attempts aren't logged and aren't of interest) and fully connected to the
 proxy, but before Velocity decides which backend server to send them to. Logging here guarantees
