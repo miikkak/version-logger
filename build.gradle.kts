@@ -7,6 +7,9 @@ version = (project.findProperty("releaseVersion") as String?) ?: "0.1.0-SNAPSHOT
 
 java {
     toolchain {
+        // Matches the Oracle GraalVM 25.x that the Velocity/Paper container images are pinned
+        // to - not a Velocity version-support requirement, so don't lower this to broaden
+        // compatibility with older Velocity/Java deployments.
         languageVersion = JavaLanguageVersion.of(25)
     }
 }
