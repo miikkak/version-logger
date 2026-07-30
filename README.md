@@ -27,7 +27,8 @@ the message is written before any limbo-vs-lobby routing decision, for every pla
 
 ## Requirements
 
-- JDK 25 to build (Gradle toolchain-managed)
+- JDK 25 to build (Gradle toolchain-managed) - pinned to match the Oracle GraalVM 25.x used by
+  the deployment containers, not a Velocity version-support requirement
 - Velocity 4.x
 
 ## Building
