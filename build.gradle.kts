@@ -19,6 +19,16 @@ repositories {
 dependencies {
     compileOnly("com.velocitypowered:velocity-api:4.0.0")
     annotationProcessor("com.velocitypowered:velocity-api:4.0.0")
+
+    testImplementation("com.velocitypowered:velocity-api:4.0.0")
+    testImplementation(platform("org.junit:junit-bom:5.11.4"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.mockito:mockito-core:5.23.0")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 tasks.jar {
