@@ -2,6 +2,14 @@
 
 A Velocity plugin that logs each player's username, UUID, and client protocol version on login.
 
+## About this project
+
+This was built with heavy Claude Code assistance — most of the implementation is AI-generated,
+with the design and review driven by me. It has unit test coverage
+(`VersionLoggerPluginTest`) and runs on my own production Velocity proxy, so it sees real
+day-to-day use, not just its own test suite. Read the source and file issues if something looks
+off.
+
 ## Why
 
 Velocity routes players on outdated clients to a limbo server, and only the lobby has
@@ -73,4 +81,4 @@ There is no automated deploy yet - this is manual, on-demand testing only.
 
 ## License
 
-TBD
+[MIT License](LICENSE) - Copyright (c) 2026 Miikka Karhuluoma
