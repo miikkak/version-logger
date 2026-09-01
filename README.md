@@ -72,7 +72,7 @@ There is no automated deploy yet - this is manual, on-demand testing only.
   `build.gradle.kts`, regenerate it with `./gradlew dependencies --write-locks` and commit the
   result alongside the change.
   - `com.velocitypowered:velocity-brigadier:1.0.0-SNAPSHOT` is a transitive dependency of
-    `velocity-api:4.0.0` and is locked like everything else, but SNAPSHOT artifacts are mutable
+    `velocity-api:4.1.1` and is locked like everything else, but SNAPSHOT artifacts are mutable
     on the remote repo - the lock pins the version string, not the artifact content, so this one
     dependency doesn't get the same reproducibility guarantee as the rest of the lockfile. This
     is inherited from Velocity's own POM, not something fixable here.
