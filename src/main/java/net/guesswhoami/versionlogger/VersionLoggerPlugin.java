@@ -31,9 +31,13 @@ public class VersionLoggerPlugin {
     public void onPostLogin(PostLoginEvent event) {
         Player player = event.getPlayer();
         ProtocolVersion version = player.getProtocolVersion();
+        // Mojang online-mode usernames are restricted to [a-zA-Z0-9_]{1,16}, but offline-mode
+        // and auth-bridge proxies (e.g. Geyser/Floodgate) don't enforce that - strip line breaks
+        // so a crafted username can't forge extra log lines.
+        String sanitizedUsername = player.getUsername().replaceAll("[\\r\\n]", "_");
         logger.info(
                 "{} ({}) connected with protocol {} ({})",
-                player.getUsername(),
+                sanitizedUsername,
                 player.getUniqueId(),
                 version.getProtocol(),
                 version.getMostRecentSupportedVersion());
