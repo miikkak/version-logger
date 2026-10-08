@@ -35,6 +35,21 @@ class VersionLoggerPluginTest {
     }
 
     @Test
+    void recordsMinecraft263ProtocolAndVersionName() {
+        Logger logger = mock(Logger.class);
+        Player player = mock(Player.class);
+        UUID uuid = UUID.fromString("a1b2c3d4-e5f6-7890-abcd-ef1234567890");
+        when(player.getUsername()).thenReturn("playername");
+        when(player.getUniqueId()).thenReturn(uuid);
+        when(player.getProtocolVersion()).thenReturn(ProtocolVersion.MINECRAFT_26_3);
+
+        new VersionLoggerPlugin(logger).onPostLogin(new PostLoginEvent(player));
+
+        verify(logger)
+                .info("{} ({}) connected with protocol {} ({})", "playername", uuid, 777, "26.3");
+    }
+
+    @Test
     void sanitizesCarriageReturnsAndNewlinesInUsername() {
         Logger logger = mock(Logger.class);
         Player player = mock(Player.class);
